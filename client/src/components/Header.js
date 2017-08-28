@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 class Header extends Component {
@@ -22,9 +23,11 @@ class Header extends Component {
     return (
       <nav>
         <div className='nav-wrapper'>
-          <a className='left brand-logo'>
+          <Link
+            to={this.props.auth ? '/surveys' : '/'}
+            className='left brand-logo'>
             Emaily
-          </a>
+          </Link>
           <ul className='right'>
             {this.renderContent()}
           </ul>
@@ -33,7 +36,9 @@ class Header extends Component {
     )
   }
 }
+
 function mapStateToProps({ auth }) {
   return { auth }
 }
+
 export default connect(mapStateToProps)(Header)
