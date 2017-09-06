@@ -5,9 +5,15 @@ export default ({ input, label, meta: { error, touched } }) => {
     <div>
       <label>{label}</label>
       <input {...input} style={{ marginBottom: '5px' }} />
-      <div className="red-text" style={{ marginBottom: '20px' }}>
-        {touched && error}
-      </div>
+      {touched &&
+        error &&
+        <div style={{ marginBottom: '20px', color: '#700' }}>
+          <i className="material-icons left tiny" style={{ marginRight: '5px' }}>
+            error
+          </i>
+          {error}
+        </div>
+      }
     </div>
   )
 };
