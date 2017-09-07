@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 function localtunnel {
-  lt -s fjajfefjvkfjaomnb -p 5000
+  ngrok http 5000
 }
 until localtunnel; do
 echo "localtunnel server crashed"
