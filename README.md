@@ -4,7 +4,7 @@ It is a web application where you can send surveys to a numerious amount of emai
 
   * You can simply download the repo or clone it
     
-    `https://github.com/immanoj16/Emaily-Survey.git`
+    `git clone https://github.com/immanoj16/Emaily-Survey.git`
   * Then install the dependencies - in the root folder as well as in the client folder
     
     `npm install`
