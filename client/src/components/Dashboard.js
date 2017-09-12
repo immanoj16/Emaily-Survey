@@ -4,15 +4,25 @@ import { Link } from 'react-router-dom'
 import SurveyList from './surveys/SurveyList'
 
 
-class FlavorForm extends React.Component {
+const FlavorForm = ({ handleChange }) => {
+  return (
+    <div style={{ cursor: 'pointer' }}>
+      <span onClick={handleChange}>Newest First</span> | <span onClick={handleChange}>Oldest First</span>
+    </div>
+  );
+};
+
+class Dashboard extends React.Component {
+
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {value: 'Newest First'};
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
+    console.log(event.target.innerHTML);
     this.setState({
       value: event.target.innerHTML
     });
@@ -21,26 +31,17 @@ class FlavorForm extends React.Component {
 
   render() {
     return (
-      <div style={{ cursor: 'pointer'}}>
-        <span onClick={this.handleChange}>Newest First</span> |
-        <span onClick={this.handleChange}>Oldest First</span>
+      <div>
+        <FlavorForm handleChange={this.handleChange} />
+        <SurveyList list={this.state.value} />
+        <div className="fixed-action-btn">
+          <Link className="btn-floating btn-large red" to="/surveys/new" >
+            <i className="material-icons">add</i>
+          </Link>
+        </div>
       </div>
     );
   }
 }
-
-const Dashboard = () => {
-  return (
-    <div>
-      <FlavorForm />
-      <SurveyList />
-      <div className="fixed-action-btn">
-        <Link className="btn-floating btn-large red" to="/surveys/new" >
-          <i className="material-icons">add</i>
-        </Link>
-      </div>
-    </div>
-  );
-};
 
 export default Dashboard
