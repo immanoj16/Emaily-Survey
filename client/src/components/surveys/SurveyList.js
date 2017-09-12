@@ -8,6 +8,7 @@ class SurveyList extends Component {
 
   componentDidMount() {
     this.props.fetchSurveys();
+    console.log(this.props.list)
   }
 
   surveyList(survey) {
@@ -31,7 +32,7 @@ class SurveyList extends Component {
   }
 
   renderSurveys() {
-    return this.props.list === 'Newest First' ? this.props.surveys.reverse().map(survey => this.surveyList(survey)) : this.props.surveys.map(survey => this.surveyList(survey))
+    return this.props.list === 'new' ? this.props.surveys.reverse().map(survey => this.surveyList(survey)) : this.props.surveys.map(survey => this.surveyList(survey))
   }
 
   render () {

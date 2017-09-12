@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import SurveyList from './surveys/SurveyList'
 
 
-const FlavorForm = ({ handleChange }) => {
+const FlavorForm = ({ handleNew, handleOld }) => {
   return (
     <div style={{ cursor: 'pointer' }}>
-      <span onClick={handleChange}>Newest First</span> | <span onClick={handleChange}>Oldest First</span>
+      <span onClick={handleNew}>Newest First</span> | <span onClick={handleOld}>Oldest First</span>
     </div>
   );
 };
@@ -16,23 +16,32 @@ class Dashboard extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: 'Newest First'};
 
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      value: 'new'
+    };
+
+    this.handleNew = this.handleNew.bind(this);
+    this.handleOld = this.handleOld.bind(this);
   }
 
-  handleChange(event) {
-    console.log(event.target.innerHTML);
+  handleNew(event) {
     this.setState({
-      value: event.target.innerHTML
+      value: 'new'
     });
-    console.log(this.state.value);
+  }
+
+  handleOld(event) {
+    this.setState({
+      value: 'old'
+    });
   }
 
   render() {
+    console.log(this.state.value);
     return (
       <div>
-        <FlavorForm handleChange={this.handleChange} />
+        <FlavorForm handleNew={this.handleNew} handleOld={this.handleOld} />
         <SurveyList list={this.state.value} />
         <div className="fixed-action-btn">
           <Link className="btn-floating btn-large red" to="/surveys/new" >
