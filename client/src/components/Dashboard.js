@@ -39,9 +39,9 @@ class Dashboard extends React.Component {
 
     return (
       <div>
-        <div style={{ cursor: 'pointer' }}>
-          <span onClick={this.handleNew} style={value === 'new' ? renderStyle : null}>Newest First</span> |&nbsp;
-          <span onClick={this.handleOld} style={value === 'new' ? null : renderStyle}>Oldest First</span>
+        <div style={{ cursor: 'pointer', marginTop: '10px' }}>
+          <span className="list" onClick={this.handleNew} style={value === 'new' ? renderStyle : null}>Newest First</span> |&nbsp;
+          <span className="list" onClick={this.handleOld} style={value === 'new' ? null : renderStyle}>Oldest First</span>
         </div>
         <SurveyList list={value} />
         <div className="fixed-action-btn">
