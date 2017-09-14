@@ -6,9 +6,20 @@ import { fetchSurveys } from "../../actions";
 
 class SurveyList extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: ''
+    }
+  }
+
   componentDidMount() {
     this.props.fetchSurveys();
-    console.log(this.props.list)
+
+    this.setState({
+      value: this.props.list
+    })
   }
 
   surveyList(survey) {
@@ -32,7 +43,12 @@ class SurveyList extends Component {
   }
 
   renderSurveys() {
-    return this.props.list === 'new' ? this.props.surveys.reverse().map(survey => this.surveyList(survey)) : this.props.surveys.map(survey => this.surveyList(survey))
+    return (
+      this.state.value === 'new'
+        ? this.props.surveys.reverse().map(survey => this.surveyList(survey))
+        :
+        this.props.surveys.map(survey => this.surveyList(survey))
+    )
   }
 
   render () {
