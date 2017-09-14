@@ -32,11 +32,16 @@ class Dashboard extends React.Component {
   render() {
     const { value } = this.state;
 
+    const renderStyle = {
+      color: '#39a503',
+      textDecoration: 'underline'
+    };
+
     return (
       <div>
         <div style={{ cursor: 'pointer' }}>
-          <span onClick={this.handleNew}>Newest First</span> |&nbsp;
-          <span onClick={this.handleOld}>Oldest First</span>
+          <span onClick={this.handleNew} style={value === 'new' ? renderStyle : null}>Newest First</span> |&nbsp;
+          <span onClick={this.handleOld} style={value === 'new' ? null : renderStyle}>Oldest First</span>
         </div>
         <SurveyList list={value} />
         <div className="fixed-action-btn">
