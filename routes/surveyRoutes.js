@@ -80,4 +80,8 @@ module.exports = app => {
     }
 
   });
+
+  app.delete('/api/surveys/:surveyId', requireLogin, (req, res) => {
+
+  });
 };
