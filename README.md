@@ -12,10 +12,8 @@ It is a web application where you can send surveys to a numerious amount of emai
     Note:- in root folder run this and in client folder also run this
     
   * You have to create a set of api keys in project folder/config/dev.js
-  
-     list of keys
-        * Google api(client id, secret id)
-        * mongoURI from mlab.com
+     
+     list of keys Google api(client id, secret id), mongoURI from mlab.com, cookieKey(any string you want), stripe key(from stripe.com), sendgrid key(sendgrid.com) and redirectDomain.
 
 
 You can visit [here](https://blooming-crag-83084.herokuapp.com/)
