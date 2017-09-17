@@ -81,7 +81,9 @@ module.exports = app => {
 
   });
 
-  app.delete('/api/surveys/:surveyId', requireLogin, (req, res) => {
+  app.delete('/api/surveys/delete', requireLogin, (req, res) => {
+    console.log('req', req);
 
+    res.send({});
   });
 };
